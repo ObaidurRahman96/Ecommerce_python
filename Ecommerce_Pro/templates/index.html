@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    {% block content %}
+
+    <h1>Projects</h1>
+    <!--   Create table for showing data from database -->
+    <table>
+        <tr>
+        
+            <th>Project</th>
+            <th>Created</th>
+            <th>Votes_Total</th>
+            <th>Votes_Ratio</th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        {% for project in projects %}
+        <tr>
+            
+            <td>{{ project.title }}</td>
+            <td>{{ project.vote_ratio }}%</td>
+            <td>{{ project.vote_total }}</td>
+            <td>{{ project.created }}</td>
+            <td><a href="{% url 'update-project' project.id %}">Edit</a></td>
+            <td><a href="{% url 'ProjectView' project.id %}">View</a></td>
+        </tr>
+
+
+        {% endfor %}
+
+    </table>
+    {% endblock content %}
+</body>
+</html>
