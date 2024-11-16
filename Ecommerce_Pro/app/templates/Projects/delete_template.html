@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<form>
+    <p>Are you sure to Delete "{{ object }}"?</p>
+    <a href="{% url 'IndexView' %}">Go Back</a>
+    <input type="submit" value="Confirm">
+</form>
+
+
+
+
+{% endblock %}

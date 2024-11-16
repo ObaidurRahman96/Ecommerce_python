@@ -36,3 +36,9 @@ def updateProject(request, pk):
             return redirect('IndexView')
     contex={'form' : form}
     return render(request, 'projects/project_form.html', contex)
+
+#delete the data from database
+def deleteProject(request, pk):
+    app=Project.objects.get(id=pk)
+    context={'object' : app}
+    return render(request, 'projects/delete_template.html', context)
